@@ -1,2 +1,8 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="show-gif-item">
+	<h3><%= @post.title %></h3><br>
+	<img class="show-gif" src="<%= @post.gif_url %>">
+	<div class="button-bar">
+		<a href="/posts/upvote/<%= @post.id %>"><button class="vote-up">Vote Up</button></a>
+		<a href="/posts/downvote/<%= @post.id %>"><button class="vote-down">Vote Down</button></a>
+	</div>
+</li>
