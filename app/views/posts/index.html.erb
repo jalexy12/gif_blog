@@ -2,8 +2,9 @@
 <ul class="gif-list">
 	<% @posts.each do | post | %>
 		<li class="index-gif-item">
-			<strong><%= post.title %></strong><br>
-			<img class="index-gif" src="<%= post.gif_url %>">
+			<strong><%= link_to(post.title, post_path(post)) %></strong><br>
+			<img class="index-gif" src="<%= post.gif_url %>"><br>
+			<span>Votes: <%= post.vote_count  %></span>
 		</li>
 	<% end %>
 </ul>

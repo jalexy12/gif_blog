@@ -20,6 +20,20 @@ class PostsController < ApplicationController
   	@post = Post.find_by_id(params[:id])
   end
 
+  def upvote
+  	@post = Post.find_by_id(params[:id])
+  	@post.increment(:vote_count)
+    @post.save
+  	redirect_to('/posts')
+  end
+
+  def downvote
+  	@post = Post.find_by_id(params[:id])
+  	@post.decrement(:vote_count)
+    @post.save
+  	redirect_to('/posts')
+  end
+
   private 
 
    def post_params
