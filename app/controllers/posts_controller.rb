@@ -3,9 +3,24 @@ class PostsController < ApplicationController
   	@post = Post.new
   end
 
+  def create 
+  	@post = Post.new(post_params)
+  	if @post.save
+  		redirect_to('/posts')
+  	else
+  		render(:new)
+  	end
+  end
+
   def show
   end
 
   def index
+  end
+
+  private 
+
+  def post_params
+  	params.require(:post).permit(:title, :gif_url)
   end
 end
