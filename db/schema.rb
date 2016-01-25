@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20160125165546) do
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "gif_url"
-    t.integer  "vote_count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "vote_count", default: 0, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
 end

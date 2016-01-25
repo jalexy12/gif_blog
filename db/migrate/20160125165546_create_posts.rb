@@ -3,7 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.string :title
       t.string :gif_url
-      t.integer :vote_count
+      t.integer :vote_count, null: false, default: 0
 
       t.timestamps null: false
     end
