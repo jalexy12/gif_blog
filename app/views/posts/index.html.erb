@@ -1,2 +1,10 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>My Sweet Gif Blog</h1>
+<ul class="gif-list">
+	<% @posts.each do | post | %>
+		<li class="index-gif-item">
+			<strong><%= post.title %></strong><br>
+			<img class="index-gif" src="<%= post.gif_url %>">
+		</li>
+	<% end %>
+</ul>
+
