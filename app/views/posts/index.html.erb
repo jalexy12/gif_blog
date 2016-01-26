@@ -1,0 +1,21 @@
+<h1>My Sweet Gif Blog</h1>
+
+<!-- Don't display links to go to the same action -->
+<% if params[:action] != "sorted_by_date" %>
+	<a href="/posts/sorted_by_date">Sort By Date</a>
+<% end %>
+<% if params[:action] != "sorted_by_votes" %>
+	<a href="/posts/sorted_by_votes">Sort By Votes</a>
+<% end %>
+<a href="/posts/low_rated_posts">Posts with under 5 votes</a>
+
+<ul class="gif-list">
+	<% @posts.each do | post | %>
+		<li class="index-gif-item">
+			<strong><%= link_to(post.title, post_path(post)) %></strong><br>
+			<img class="index-gif" src="<%= post.gif_url %>"><br>
+			<span>Votes: <%= post.vote_count  %></span>
+		</li>
+	<% end %>
+</ul>
+

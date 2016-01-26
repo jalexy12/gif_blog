@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  get '/posts' => 'posts#index'
+  get '/posts/new' => 'posts#new'
+  post '/posts' => 'posts#create'
+  get '/posts/upvote/:id' => "posts#upvote", as: :posts_upvote
+  get '/posts/downvote/:id' => "posts#downvote", as: :posts_downvote
+  get '/posts/low_rated_posts' => "posts#low_rated_index"
+  get '/posts/sorted_by_date' => "posts#sorted_by_date"
+  get '/posts/sorted_by_votes' => "posts#sorted_by_votes"
+  get '/posts/:id' => 'posts#show', as: :post
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
