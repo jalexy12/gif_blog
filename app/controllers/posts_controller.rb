@@ -16,6 +16,10 @@ class PostsController < ApplicationController
   	@posts = Post.where("vote_count >= ?", 5)
   end
 
+  def update
+    
+  end
+
   def low_rated_index
     @posts = Post.where("vote_count <= ?", 5)
     render 'index'
@@ -49,9 +53,18 @@ class PostsController < ApplicationController
   	redirect_to('/posts')
   end
 
+  def update
+    @post = Post.find_by_id(params[:id])
+    if @post.update(post_params)
+      redirect_to '/posts'
+    else
+      render 'show'
+    end 
+  end
+
   private 
 
    def post_params
-    	params.require(:post).permit(:title, :gif_url)
+    	params.require(:post).permit(:title, :gif_url, { label_ids: [] })
    end
 end

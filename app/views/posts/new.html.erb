@@ -1,0 +1,14 @@
+<h1>Posts#new</h1>
+<%= form_for @post do | f | %>
+	<div>
+		<%= f.label :title %><br>
+		<%= f.text_field :title %>
+	</div>
+
+	<div>
+		<%= f.label :gif_url %><br>
+		<%= f.text_field :gif_url %>
+	</div>
+
+	<%= f.submit %>
+<% end %>
