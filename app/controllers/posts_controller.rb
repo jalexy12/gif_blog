@@ -15,11 +15,7 @@ class PostsController < ApplicationController
   def index
   	@posts = Post.where("vote_count >= ?", 5)
   end
-
-  def update
-    
-  end
-
+  
   def low_rated_index
     @posts = Post.where("vote_count <= ?", 5)
     render 'index'
